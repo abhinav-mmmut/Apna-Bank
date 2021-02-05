@@ -47,6 +47,17 @@ public class Customer {
 		this.acnt_bal = acnt_bal;
 	}
 
+	public Customer() {
+	}
+
+	public Customer(int id, String name, String email, float acnt_bal) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.acnt_bal = acnt_bal;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + ", email=" + email + ", acnt_bal=" + acnt_bal + "]";

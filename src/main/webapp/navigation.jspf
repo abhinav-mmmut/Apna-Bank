@@ -12,10 +12,11 @@
 				<a class="navbar-brand" href="#">Basic Banking System</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="homeController">Home</a></li>
-				<li><a href="viewAllCustomersController">View all Customers</a></li>
-				<li><a href="viewAllTransactionsController">View all Transactions</a></li>
-				<li><a href="transferMoneyController">Transfer Money</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="viewAllCustomers">View all Customers</a></li>
+				<li><a href="viewAllTransactions">View all Transactions</a></li>
+				<li><a href="transferMoney">Transfer Money</a></li>
+				<li><a href="addAccntHolder">Add a Account holder</a></li>
 			</ul>
 		</div>
 	</nav>

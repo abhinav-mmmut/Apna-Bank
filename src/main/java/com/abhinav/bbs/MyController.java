@@ -16,13 +16,13 @@ public class MyController {
 	@Autowired
 	TranscationRepository trans_repo;
 
-	@RequestMapping("/homeController")
+	@RequestMapping("/")
 	public String home() {
 		System.out.println("home method called");
 		return "home.jsp";
 	}
 
-	@RequestMapping("/viewAllCustomersController")
+	@RequestMapping("/viewAllCustomers")
 	public ModelAndView viewAllCustomers() {
 		System.out.println("viewAllCustomers method called");
 		List<Customer> list = cust_repo.findAll();
@@ -34,13 +34,13 @@ public class MyController {
 		return mv;
 	}
 
-	@RequestMapping("/transferMoneyController")
+	@RequestMapping("/transferMoney")
 	public String transferMoney() {
 		System.out.println("transferMoney method called");
 		return "transferMoney.jsp";
 	}
 
-	@RequestMapping("transactionController")
+	@RequestMapping("transaction")
 	public String transaction(String sender, String receiver, float amount) {
 		System.out.println("transaction method called");
 		Optional<Customer> cust1 = cust_repo.findByName(sender);
@@ -54,10 +54,10 @@ public class MyController {
 			System.out.println("transaction failed, wrong credentials");
 		}
 		trans_repo.save(new Transaction(0, sender, receiver, amount));
-		return "success.jsp";
+		return "successTransaction.jsp";
 	}
 
-	@RequestMapping("/viewAllTransactionsController")
+	@RequestMapping("/viewAllTransactions")
 	public ModelAndView viewAllTransactions() {
 		System.out.println("viewAllTransactions method called");
 		List<Transaction> list = trans_repo.findAll();
@@ -67,5 +67,18 @@ public class MyController {
 		mv.addObject("list", list);
 		mv.setViewName("viewAllTransactions.jsp");
 		return mv;
+	}
+	@RequestMapping("/addAccntHolder")
+	public String AddAccntHolder() {
+		System.out.println("addAccntHolder method called");
+		return "addCustomer.jsp";
+	}
+	
+	@RequestMapping("/addCustomer")
+	public String addCustomer(String name,String email,float acnt_bal) {
+		System.out.println("addCustomer method called");
+		Customer customer=new Customer(0,name,email,acnt_bal);
+		cust_repo.save(customer);		
+		return "successAcnt.jsp";
 	}
 }
